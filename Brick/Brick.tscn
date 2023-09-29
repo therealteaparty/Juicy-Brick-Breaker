@@ -1,18 +1,64 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjvdmnbj44w6x"]
+[gd_scene load_steps=10 format=3 uid="uid://bjvdmnbj44w6x"]
 
 [ext_resource type="Script" path="res://Brick/Brick.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dqyv6fy6uiuqo" path="res://Assets/Brick.png" id="2_fxewk"]
+[ext_resource type="Script" path="res://Brick/Cloud.gd" id="3_k4max"]
+[ext_resource type="Texture2D" uid="uid://5rakhjqvsusv" path="res://Assets/Star.png" id="4_jp8t4"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(90, 30)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7vh4"]
+atlas = ExtResource("2_fxewk")
+region = Rect2(0, 0, 45, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjblr"]
+atlas = ExtResource("2_fxewk")
+region = Rect2(0, 22, 45, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sdyqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7vh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjblr")
+}],
+"loop": true,
+"name": &"Cloud",
+"speed": 1.0
+}]
+
+[sub_resource type="Curve" id="Curve_cnl42"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.978022, 0.568421), 0.0, 0.0, 0, 0, Vector2(0.983517, 0.105263), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="Brick" type="StaticBody2D"]
 script = ExtResource("1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -45.0
-offset_top = -15.0
-offset_right = 45.0
-offset_bottom = 15.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
+
+[node name="Cloud" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.02273, 2.02273)
+sprite_frames = SubResource("SpriteFrames_sdyqj")
+animation = &"Cloud"
+script = ExtResource("3_k4max")
+
+[node name="Stars" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.5
+randomness = 1.0
+texture = ExtResource("4_jp8t4")
+emission_shape = 3
+emission_rect_extents = Vector2(45, 15)
+direction = Vector2(0, 0)
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 0.5
+scale_amount_curve = SubResource("Curve_cnl42")

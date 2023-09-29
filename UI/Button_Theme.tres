@@ -1,0 +1,46 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dxt24sv0brn7j"]
+
+[ext_resource type="FontFile" uid="uid://px68x0ogbi65" path="res://Assets/Junction-bold.otf" id="1_8goap"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atwpd"]
+bg_color = Color(0, 0.196078, 0.454902, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iv1xg"]
+bg_color = Color(0, 0.196078, 0.454902, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1w0tf"]
+bg_color = Color(0.254902, 0.556863, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_woe7h"]
+bg_color = Color(0, 0.196078, 0.454902, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5js0"]
+bg_color = Color(0, 0.196078, 0.454902, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[resource]
+Button/fonts/font = ExtResource("1_8goap")
+Button/styles/disabled = SubResource("StyleBoxFlat_atwpd")
+Button/styles/focus = SubResource("StyleBoxFlat_iv1xg")
+Button/styles/hover = SubResource("StyleBoxFlat_1w0tf")
+Button/styles/normal = SubResource("StyleBoxFlat_woe7h")
+Button/styles/pressed = SubResource("StyleBoxFlat_p5js0")
