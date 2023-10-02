@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bd5m3yq1k5fx8"]
+[gd_scene load_steps=14 format=3 uid="uid://bd5m3yq1k5fx8"]
 
 [ext_resource type="Script" path="res://Brick/Brick_Container.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dmwf8wjdir6y5" path="res://Paddle/Paddle.tscn" id="2"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://do7pdpjxteg8e" path="res://UI/HUD.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://r1nm10jeqyta" path="res://UI/Instructions.tscn" id="8"]
 [ext_resource type="Script" path="res://Effects/Fever.gd" id="9"]
+[ext_resource type="Script" path="res://UI/Camera.gd" id="11_vcj08"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(200, 1000)
@@ -21,8 +22,8 @@ size = Vector2(1224, 200)
 script = ExtResource("4")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(560, 385)
-scale = Vector2(0.476019, 0.476019)
+position = Vector2(577.317, 398.5)
+scale = Vector2(0.490522, 0.492206)
 texture = ExtResource("2_wqj1x")
 
 [node name="Wall_Container" type="Node2D" parent="."]
@@ -81,9 +82,11 @@ visible = false
 [node name="Pause_Menu" parent="UI" instance=ExtResource("5")]
 process_mode = 3
 visible = false
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Instructions" parent="UI" instance=ExtResource("8")]
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("11_vcj08")
 
 [connection signal="timeout" from="Fever/Timer" to="Fever" method="_on_Timer_timeout"]

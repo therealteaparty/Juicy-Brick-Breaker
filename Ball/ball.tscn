@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr50duubwf50c"]
+[gd_scene load_steps=6 format=3 uid="uid://dr50duubwf50c"]
 
 [ext_resource type="Script" path="res://Ball/Ball.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://b4jnbiak01uc6" path="res://Assets/Ball.png" id="2_ysltn"]
+[ext_resource type="Texture2D" uid="uid://nmlpnklncic0" path="res://Assets/Ball (2).png" id="2_x0802"]
+[ext_resource type="Texture2D" uid="uid://b0wjfuny6i76i" path="res://Assets/White_Ball.png" id="3_h524u"]
 
 [sub_resource type="PhysicsMaterial" id="2"]
 friction = 0.0
@@ -19,8 +20,14 @@ script = ExtResource("1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
 
-[node name="Ball" type="Sprite2D" parent="."]
+[node name="Images" type="Node2D" parent="."]
+
+[node name="Ball" type="Sprite2D" parent="Images"]
 texture_filter = 1
-texture = ExtResource("2_ysltn")
+texture = ExtResource("2_x0802")
+
+[node name="Highlight" type="Sprite2D" parent="Images"]
+texture_filter = 1
+texture = ExtResource("3_h524u")
 
 [connection signal="body_entered" from="." to="." method="_on_Ball_body_entered"]

@@ -3,7 +3,7 @@ extends Node
 var levels = [
 	{
 		"name":"Level 1",
-		"instructions":"Break all the Bricks",
+		"instructions":"Break all the Clouds",
 		"background":"",
 		"music":"",
 		"sound_paddle":"",
@@ -24,6 +24,7 @@ var levels = [
 			50:"res://Brick/Brick.tscn",
 			40:"res://Brick/Brick.tscn",
 			30:"res://Brick/Brick.tscn",
+			#1: "res://Assets/Moon_1.png",
 		},
 		"layout":[
 			[100,100,100,100,100,100,100,100,100,100]
@@ -38,8 +39,8 @@ var levels = [
 	}
 	,{
 		"name":"Level 2",
-		"instructions":"Keep on brickin'",
-		"background":"",
+		"instructions":"Keep on flyin'",
+		"background":"res://UI/background_2.tscn",
 		"music":"",
 		"sound_paddle":"",
 		"sound_brick":"",
