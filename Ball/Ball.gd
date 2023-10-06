@@ -16,6 +16,8 @@ var wobble_direction = Vector2.ZERO
 var decay_wobble = 0.15
 var distort_effect = 0.0002
 
+var h_rotate = 0.0
+
 var initial_velocity = Vector2.ZERO
 
 func _ready():
@@ -74,6 +76,9 @@ func change_speed(s):
 	speed_multiplier = s
 
 func die():
+	var die_sound = get_node_or_null("/root/Game/Die_Sound")
+	if die_sound != null:
+		die_sound.play()
 	queue_free()
 	
 func wobble():
@@ -87,3 +92,13 @@ func distort():
 	var direction = Vector2(1 + linear_velocity.length() * distort_effect, 1 - linear_velocity.length() * distort_effect)
 	$Images.rotation = linear_velocity.angle()
 	$Images.scale = direction
+	
+func comet():
+	h_rotate = wrapf(h_rotate+0.01, 0, 1)
+	var comet_container = get_node_or_null("/root/Game/Comet_Container")
+	if comet_container != null:
+		var sprite = $Images/Ball.duplicate()
+		sprite.global_position = global_position
+		sprite.modulate.s = 0.6
+		sprite.modulate.h = h_rotate
+		comet_container.add_child(sprite)

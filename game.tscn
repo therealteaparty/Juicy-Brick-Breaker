@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bd5m3yq1k5fx8"]
+[gd_scene load_steps=28 format=3 uid="uid://bd5m3yq1k5fx8"]
 
 [ext_resource type="Script" path="res://Brick/Brick_Container.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dmwf8wjdir6y5" path="res://Paddle/Paddle.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://wjw0l4yrnqqm" path="res://Assets/Untitled_Artwork (4).png" id="2_c8236"]
 [ext_resource type="Texture2D" uid="uid://dot3twv387wt3" path="res://Assets/Sky_1.png" id="2_wqj1x"]
 [ext_resource type="Script" path="res://Ball/Ball_Container.gd" id="3"]
+[ext_resource type="Script" path="res://Walls/Lightning.gd" id="3_sswh4"]
 [ext_resource type="Script" path="res://Game.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://ci5q3vmuimsfr" path="res://UI/Pause_Menu.tscn" id="5"]
 [ext_resource type="Script" path="res://Wall/Wall.gd" id="6"]
@@ -11,6 +13,55 @@
 [ext_resource type="PackedScene" uid="uid://r1nm10jeqyta" path="res://UI/Instructions.tscn" id="8"]
 [ext_resource type="Script" path="res://Effects/Fever.gd" id="9"]
 [ext_resource type="Script" path="res://UI/Camera.gd" id="11_vcj08"]
+[ext_resource type="AudioStream" uid="uid://ri24dwdpdhs4" path="res://Assets/Thunder.mp3" id="12_22cx2"]
+[ext_resource type="AudioStream" uid="uid://d2u1uv7l0qglp" path="res://Assets/Paddle.wav" id="13_0i7ad"]
+[ext_resource type="AudioStream" uid="uid://yeyddk5tydte" path="res://Assets/Brick.wav" id="14_7tbj7"]
+[ext_resource type="AudioStream" uid="uid://r4hincuvfpfv" path="res://Assets/Die.wav" id="15_7kae2"]
+[ext_resource type="AudioStream" uid="uid://cmghj1lpi1oyd" path="res://Assets/My-Song-6.wav" id="15_pi50q"]
+[ext_resource type="Script" path="res://Ball/Comet_Container.gd" id="16_wh6a4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu6dw"]
+atlas = ExtResource("2_c8236")
+region = Rect2(0, 0, 1599, 1668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7d25"]
+atlas = ExtResource("2_c8236")
+region = Rect2(1599, 0, 1599, 1668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvj4b"]
+atlas = ExtResource("2_c8236")
+region = Rect2(3198, 0, 1599, 1668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmldc"]
+atlas = ExtResource("2_c8236")
+region = Rect2(4797, 0, 1599, 1668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jowpa"]
+atlas = ExtResource("2_c8236")
+region = Rect2(6396, 0, 1599, 1668)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_go1s1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu6dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7d25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvj4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmldc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jowpa")
+}],
+"loop": true,
+"name": &"lightning",
+"speed": 15.0
+}]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(200, 1000)
@@ -20,6 +71,16 @@ size = Vector2(1224, 200)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("4")
+
+[node name="Lightning" type="AnimatedSprite2D" parent="."]
+position = Vector2(543, 573)
+scale = Vector2(0.713884, 0.713884)
+sprite_frames = SubResource("SpriteFrames_go1s1")
+animation = &"lightning"
+script = ExtResource("3_sswh4")
+
+[node name="Comet_Container" type="Node2D" parent="."]
+script = ExtResource("16_wh6a4")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(577.317, 398.5)
@@ -88,5 +149,21 @@ visible = false
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("11_vcj08")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_pi50q")
+autoplay = true
+
+[node name="Wall_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_22cx2")
+
+[node name="Paddle_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_0i7ad")
+
+[node name="Brick_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_7tbj7")
+
+[node name="Die_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_7kae2")
 
 [connection signal="timeout" from="Fever/Timer" to="Fever" method="_on_Timer_timeout"]
