@@ -17,8 +17,7 @@ Juicy Effects:
 5. Particles when brick is hit
 6. Bricks rotate when hit
 7. Bricks fall off screen when hit
-8. Bricks rotate when hit
-9. Background added to game and menus
+8. Background added to game and menus
 
 ## References
 Typeface -- https://www.theleagueofmoveabletype.com/junction
