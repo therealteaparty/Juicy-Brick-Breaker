@@ -4,7 +4,6 @@ var levels = [
 	{
 		"name":"Level 1",
 		"instructions":"Break all the Clouds",
-		"background":"",
 		"music":"",
 		"sound_paddle":"",
 		"sound_brick":"",
@@ -35,12 +34,12 @@ var levels = [
 			,[50,50,50,50,50,50,50,50,50,50]
 			,[40,40,40,40,40,40,40,40,40,40]
 			,[30,30,30,30,30,30,30,30,30,30]
-		]
+		],
+		"background":"res://Assets/Sky_1.png"
 	}
 	,{
 		"name":"Level 2",
 		"instructions":"Keep on flyin'",
-		"background":"res://UI/background_2.tscn",
 		"music":"",
 		"sound_paddle":"",
 		"sound_brick":"",
@@ -70,12 +69,12 @@ var levels = [
 			,[100,50,50,100,100,50,50,100]
 			,[100,40,40,40,40,40,40,100]
 			,[0,100,100,100,100,100,100,0]
-		]
+		],
+		"background":"res://Assets/Sky_2.png"
 	}
 	,{
 		"name":"Bonus Round",
 		"instructions":"Break them as quickly as you can!",
-		"background":"",
 		"music":"",
 		"sound_paddle":"",
 		"sound_brick":"",
@@ -98,6 +97,7 @@ var levels = [
 			,[100,100,100,100,100,100,100,100]
 			,[100,100,100,100,100,100,100,100]
 			,[100,100,100,100,100,100,100,100]
-		]
+		],
+		"background":"res://Assets/Sky_3.png"
 	}
 ]

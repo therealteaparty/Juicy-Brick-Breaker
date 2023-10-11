@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://wjw0l4yrnqqm" path="res://Assets/Untitled_Artwork (4).png" id="2_c8236"]
 [ext_resource type="Texture2D" uid="uid://dot3twv387wt3" path="res://Assets/Sky_1.png" id="2_wqj1x"]
 [ext_resource type="Script" path="res://Ball/Ball_Container.gd" id="3"]
-[ext_resource type="Script" path="res://Walls/Lightning.gd" id="3_sswh4"]
 [ext_resource type="Script" path="res://Game.gd" id="4"]
+[ext_resource type="Script" path="res://Effects/Lightning.gd" id="4_oqp6h"]
 [ext_resource type="PackedScene" uid="uid://ci5q3vmuimsfr" path="res://UI/Pause_Menu.tscn" id="5"]
 [ext_resource type="Script" path="res://Wall/Wall.gd" id="6"]
 [ext_resource type="PackedScene" uid="uid://do7pdpjxteg8e" path="res://UI/HUD.tscn" id="7"]
@@ -58,9 +58,14 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jowpa")
 }],
-"loop": true,
+"loop": false,
 "name": &"lightning",
 "speed": 15.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="1"]
@@ -72,20 +77,21 @@ size = Vector2(1224, 200)
 [node name="Game" type="Node2D"]
 script = ExtResource("4")
 
-[node name="Lightning" type="AnimatedSprite2D" parent="."]
-position = Vector2(543, 573)
-scale = Vector2(0.713884, 0.713884)
-sprite_frames = SubResource("SpriteFrames_go1s1")
-animation = &"lightning"
-script = ExtResource("3_sswh4")
-
-[node name="Comet_Container" type="Node2D" parent="."]
-script = ExtResource("16_wh6a4")
-
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(577.317, 398.5)
 scale = Vector2(0.490522, 0.492206)
 texture = ExtResource("2_wqj1x")
+
+[node name="Lightning" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(480, 429)
+scale = Vector2(0.519544, 0.517518)
+sprite_frames = SubResource("SpriteFrames_go1s1")
+animation = &"lightning"
+script = ExtResource("4_oqp6h")
+
+[node name="Comet_Container" type="Node2D" parent="."]
+script = ExtResource("16_wh6a4")
 
 [node name="Wall_Container" type="Node2D" parent="."]
 

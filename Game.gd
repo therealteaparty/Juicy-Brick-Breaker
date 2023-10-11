@@ -25,3 +25,7 @@ func _ready():
 		var Instructions = get_node_or_null("/root/Game/UI/Instructions")
 		if Instructions != null:
 			Instructions.set_instructions(level["name"],level["instructions"])
+		var background = get_node_or_null("/root/Game/Background")
+		if level["background"] != "":
+			$Background.texture = load(level["background"])
+				

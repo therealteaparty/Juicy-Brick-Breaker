@@ -13,3 +13,9 @@ func hit(_ball):
 	var wall_sound = get_node_or_null("/root/Game/Wall_Sound")
 	if wall_sound != null:
 		wall_sound.play()
+	var camera = get_node_or_null("/root/Game/Camera")
+	if camera != null:
+		camera.add_trauma(3.0)
+	#var lightning = get_node("/root/Game/Lightning")
+	#lightning.play("lightning")
+
